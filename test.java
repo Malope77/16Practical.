@@ -145,4 +145,36 @@ public static void main(String[] args) {
                 System.out.println("\nAfter heap sort:");
                 System.out.println("  " + String.join(", ", sorted));
 
+                boolean isSorted = true;
+                for (int i = 1; i < sorted.length; i++) {
+                    if (sorted[i].compareTo(sorted[i-1]) < 0) {
+                        isSorted = false;
+                        break;
+                    }
+                }
+                System.out.println("\nArray is correctly sorted: " + isSorted);
+            }
+
+            
+            static void comparePerformance(String[] words) {
+                System.out.println("\n--- PERFORMANCE COMPARISON ---");
+
+               
+                System.out.println("\n▶ BOTTOM-UP HEAP CONSTRUCTION:");
+                Heap heap1 = new Heap(words.length);
+
+                long startTime = System.nanoTime();
+                heap1.buildBottomUp(words);
+                long buildTime1 = System.nanoTime() - startTime;
+
+                heap1.printFirstN(5, "  Heap after construction");
+
+                startTime = System.nanoTime();
+                String[] sorted1 = heap1.heapSort();
+                long sortTime1 = System.nanoTime() - startTime;
+
+
+
+    
+
   

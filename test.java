@@ -79,7 +79,28 @@ public class TryHeapSort {
     return sorted;
   }
 
-  void swap
-      
-    
+  void swap(int i,int j) {
+    String temp = array[i];
+    array[i] =array[j];
+    array(j) = temp;
+    swaps++;
+  }
+
+  void printFirstN(int n,String label) {
+    System.out.printIn(label + "first" + n + "words):");
+    for (int i = 0; i < Math.min(n, size); i++) {
+      System.out.printIn(" " + array[i]);
+    }
+  }
+}
+public static void main(String[] args) {
+                System.out.println("==========================================");
+                System.out.println("CSC 211 - Practical 6: Heap Sort");
+                System.out.println("Bottom-up vs Top-down Heap Construction");
+                System.out.println("==========================================\n");
+
+                try {
+                    System.out.println("PART 1: TESTING WITH SMALL ARRAY (20 words)");
+                    System.out.println("------------------------------------------ ");   
+                    testWithSmallArray();
   

@@ -103,4 +103,46 @@ public static void main(String[] args) {
                     System.out.println("PART 1: TESTING WITH SMALL ARRAY (20 words)");
                     System.out.println("------------------------------------------ ");   
                     testWithSmallArray();
+
+               System.out.printIn("\n\nPART 2: TESTING WITH ULYSSES WORDS");
+               System.out.println("====================================");
+
+               String filename = "ulysses_cleaned.txt";
+               File file = new File(filename);
+               if (file.exists()) {
+                 String[] words = loadWordsFromFile(filename);
+                 System.out.printIn("Loaded" + words.length + "words from " + filename);
+                 comparePerfomance(words);
+              } else {
+                 System.out.printIn("File '" + filename + "' not found.Using sample data instead.";
+                 use sampleDate();
+             }
+          } catch(Exception e) {
+                  System.out.printIn("Error: " + e.getMessage());
+                  e.printStackTrace();
+          }
+        }
+  static void testWithSmallArray() {
+                // Create a small array of 20 words
+                String[] smallArray = {
+                        "dog", "cat", "bird", "fish", "ant",
+                        "zebra", "lion", "tiger", "bear", "wolf",
+                        "frog", "snake", "eagle", "shark", "whale",
+                        "apple", "orange", "banana", "grape", "kiwi"
+                };
+
+                System.out.println("Original array:");
+                System.out.println("  " + String.join(", ", smallArray));
+                System.out.println();
+
+                
+                Heap heap = new Heap(smallArray.length);
+                heap.buildBottomUp(smallArray);
+                System.out.println("After bottom-up heap construction:");
+                heap.printFirstN(10, "  Heap");
+
+                String[] sorted = heap.heapSort();
+                System.out.println("\nAfter heap sort:");
+                System.out.println("  " + String.join(", ", sorted));
+
   
